@@ -15,7 +15,7 @@ import app.paypilot.app.platform.BiometricAuth
 import app.paypilot.app.platform.PlatformServices
 import app.paypilot.app.platform.SecureStore
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.engine.android.Android
 import java.security.SecureRandom
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             platformName = "Android",
             secureStore = EncryptedStore(applicationContext),
             biometric = if (BiometricManager.from(this).canAuthenticate(BIOMETRIC_STRONG) == BiometricManager.BIOMETRIC_SUCCESS) AndroidBiometric(this) else null,
-            httpClient = { HttpClient(OkHttp) },
+            httpClient = { HttpClient(Android) },
             randomBytes = { n -> ByteArray(n).also(random::nextBytes) },
         )
         setContent { PayPilotApp(services) }

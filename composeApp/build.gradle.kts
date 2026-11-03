@@ -44,7 +44,7 @@ kotlin {
             implementation(libs.androidx.appcompat)
             implementation(libs.androidx.biometric)
             implementation(libs.androidx.security.crypto)
-            implementation(libs.ktor.client.okhttp)
+            implementation(libs.ktor.client.android)
         }
         val desktopMain by getting {
             dependencies {
