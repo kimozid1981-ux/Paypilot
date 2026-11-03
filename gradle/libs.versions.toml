@@ -12,6 +12,7 @@ ktor = "3.6.1"
 logback = "1.6.6"
 argon2 = "2.12"
 jwt = "4.6.2"
+anthropic = "3.4.0"
 androidx-activity = "1.10.1"
 androidx-biometric = "1.1.0"
 androidx-security = "1.1.0"
@@ -44,6 +45,7 @@ ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref 
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 argon2 = { module = "de.mkammerer:argon2-jvm", version.ref = "argon2" }
 java-jwt = { module = "com.auth0:java-jwt", version.ref = "jwt" }
+anthropic-java = { module = "com.anthropic:anthropic-java", version.ref = "anthropic" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 androidx-biometric = { module = "androidx.biometric:biometric", version.ref = "androidx-biometric" }
 androidx-security-crypto = { module = "androidx.security:security-crypto", version.ref = "androidx-security" }
