@@ -32,4 +32,6 @@ include(":server")
 // The app module needs Google Maven (Android, AndroidX). Skip it with -PcoreOnly=true where that repo is unreachable.
 if (providers.gradleProperty("coreOnly").orNull != "true") {
     include(":composeApp")
+} else {
+    rootProject.buildFileName = "build-core.gradle.kts"
 }
