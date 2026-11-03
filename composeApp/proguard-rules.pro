@@ -1,0 +1,5 @@
+-keep class kotlinx.serialization.** { *; }
+-keepclassmembers class app.paypilot.** { *** Companion; }
+-keepclasseswithmembers class app.paypilot.** { kotlinx.serialization.KSerializer serializer(...); }
+-dontwarn org.slf4j.**
+-dontwarn io.ktor.**

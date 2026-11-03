@@ -1,0 +1,29 @@
+name: PayPilot
+options:
+  bundleIdPrefix: app.paypilot
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  PayPilot:
+    type: application
+    platform: iOS
+    sources: [iosApp]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.paypilot.ios
+        PRODUCT_NAME: PayPilot
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_CFBundleDisplayName: PayPilot
+        INFOPLIST_KEY_NSFaceIDUsageDescription: "Déverrouiller PayPilot avec Face ID."
+        FRAMEWORK_SEARCH_PATHS: "$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)"
+        OTHER_LDFLAGS: "$(inherited) -framework ComposeApp"
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+    preBuildScripts:
+      - name: Build Kotlin framework
+        script: |
+          cd "$SRCROOT/.."
+          ./gradlew :composeApp:embedAndSignAppleFrameworkForXcode
+        basedOnDependencyAnalysis: false

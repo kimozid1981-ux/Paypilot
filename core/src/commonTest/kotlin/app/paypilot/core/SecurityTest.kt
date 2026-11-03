@@ -88,3 +88,12 @@ class SecurityTest {
         assertEquals(AppLockPolicy.AttemptResult.Wipe, policy.onFailedAttempt(10))
     }
 }
+
+class Pbkdf2Test {
+    @Test fun rfc6070Vectors() {
+        val p = "password".encodeToByteArray()
+        val s = "salt".encodeToByteArray()
+        assertEquals("0c60c80f961f0e71f3a9b524af6012062fe037a6", app.paypilot.core.security.Pbkdf2.derive(p, s, 1).toHex())
+        assertEquals("4b007901b765489abead49d926f721d065a429c1", app.paypilot.core.security.Pbkdf2.derive(p, s, 4096).toHex())
+    }
+}
