@@ -68,7 +68,7 @@ jobs:
           cd iosApp
           xcodebuild -project PayPilot.xcodeproj -scheme PayPilot -configuration Debug \
             -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
-            -derivedDataPath build CODE_SIGNING_ALLOWED=NO build
+            -derivedDataPath build ARCHS=arm64 ONLY_ACTIVE_ARCH=YES CODE_SIGNING_ALLOWED=NO build
       - run: cd iosApp/build/Build/Products/Debug-iphonesimulator && zip -r ../../../../PayPilot-ios-simulator.zip PayPilot.app
       - uses: actions/upload-artifact@v4
         with:
